@@ -15,6 +15,7 @@ import { openCommandMenu } from "@agent-native/toolkit/app/shared";
 import { AgentNativeIcon } from "@agent-native/toolkit/app/shared/AgentNativeIcon";
 import {
   IconEdit,
+  IconChartHistogram,
   IconHome,
   IconLayoutSidebarLeftCollapse,
   IconLayoutSidebarLeftExpand,
@@ -118,14 +119,13 @@ function persistActiveThreadId(threadId: string) {
 }
 
 function HomeNavLink({ collapsed }: { collapsed: boolean }) {
-  const t = useT();
   const location = useLocation();
-  const active = location.pathname === HOME_PATH;
+  const active = location.pathname === "/datapilot";
   const link = (
     <Link
-      to={HOME_PATH}
+      to="/datapilot"
       aria-current={active ? "page" : undefined}
-      aria-label={collapsed ? t("navigation.home") : undefined}
+      aria-label={collapsed ? "DataPilot" : undefined}
       className={cn(
         "flex items-center text-sidebar-accent-foreground transition-colors hover:bg-sidebar-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sidebar-ring",
         active && "bg-sidebar-accent",
@@ -134,9 +134,9 @@ function HomeNavLink({ collapsed }: { collapsed: boolean }) {
           : "h-8 w-full gap-3 rounded-lg px-3 text-sm font-medium",
       )}
     >
-      <IconHome className="size-4 shrink-0" strokeWidth={1.8} />
+      <IconChartHistogram className="size-4 shrink-0" strokeWidth={1.8} />
       <span className={collapsed ? "sr-only" : "truncate"}>
-        {t("navigation.home")}
+        {"DataPilot"}
       </span>
     </Link>
   );
@@ -145,7 +145,7 @@ function HomeNavLink({ collapsed }: { collapsed: boolean }) {
     return (
       <Tooltip>
         <TooltipTrigger asChild>{link}</TooltipTrigger>
-        <TooltipContent side="right">{t("navigation.home")}</TooltipContent>
+        <TooltipContent side="right">{"DataPilot"}</TooltipContent>
       </Tooltip>
     );
   }

@@ -1,0 +1,9 @@
+id,name,age,score,joined,notes
+1,"Smith, Jane",34,88.5,2026-01-04,"said ""hello"""
+2,Bob,,92,2026-01-05,
+3,Cara,29,N/A,2026-02-10,likes tea
+4,Dev,41,75.25,2026-02-11,
+5,Eve,abc,60,2026-03-01,late
+6,Finn,38,81,2026-03-02,
+7,Gus,52,,2026-03-15,"multi
+line"

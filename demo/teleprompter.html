@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DataPilot demo script</title>
+<style>
+  :root { --ink:#172033; --paper:#eef0f3; --blue:#2552d9; --muted:#4a566b; --rule:#c9d0da; }
+  * { box-sizing: border-box; }
+  body { margin:0; font-family: "Segoe UI", system-ui, sans-serif; background:var(--paper); color:var(--ink); }
+  header { position:sticky; top:0; background:var(--ink); color:#fff; padding:10px 20px; display:flex; gap:16px; align-items:center; flex-wrap:wrap; z-index:2; }
+  header b { font-size:18px; }
+  header span { font-size:14px; opacity:.85; }
+  header button { background:transparent; color:#fff; border:1px solid #fff; border-radius:6px; padding:4px 12px; font-size:14px; cursor:pointer; }
+  main { max-width:900px; margin:0 auto; padding:24px 20px 200px; }
+  .step { border-left:6px solid var(--rule); padding:12px 20px; margin:0 0 20px; opacity:.4; transition:opacity .15s; }
+  .step.on { opacity:1; border-color:var(--blue); background:#fff; }
+  .time { font-size:14px; color:var(--muted); margin:0 0 4px; }
+  .do { font-size:18px; font-weight:700; color:var(--blue); margin:0 0 8px; }
+  .say { font-size:var(--say, 34px); line-height:1.35; margin:0; }
+  .tip { font-size:16px; color:var(--muted); margin-top:8px; }
+  .intro { font-size:18px; margin-bottom:24px; }
+  .intro li { margin-bottom:4px; }
+</style>
+</head>
+<body>
+<header>
+  <b>DataPilot demo, about 90 seconds</b>
+  <span>Space or &rarr; next &middot; &larr; back &middot; + / &minus; text size</span>
+  <button id="minus">A&minus;</button><button id="plus">A+</button><button id="reset">Start over</button>
+</header>
+<main>
+  <div class="intro">
+    <p><b>Before you press record</b></p>
+    <ul>
+      <li>Run <code>pnpm dev</code> in <code>D:\AgentNativeHackathon\datapilot</code>, then open <code>http://localhost:8080/datapilot</code>.</li>
+      <li>Click <b>Open a different file</b> so the intake screen (&ldquo;Drop in a CSV and ask it questions&rdquo;) is showing.</li>
+      <li>Close other tabs. Never open <code>.env</code> on camera. Browser window about 1280 px wide.</li>
+      <li>Put this page on a second screen or beside the recorder. Say the big text; do the blue action.</li>
+    </ul>
+  </div>
+
+  <section class="step on">
+    <p class="time">0:00 &ndash; 0:08 &middot; Intake screen showing</p>
+    <p class="do">Do: nothing yet. Look at the camera, then at the screen.</p>
+    <p class="say">&ldquo;This is DataPilot. You drop in a CSV, and it answers questions about it in plain English.&rdquo;</p>
+  </section>
+
+  <section class="step">
+    <p class="time">0:08 &ndash; 0:15</p>
+    <p class="do">Do: click <b>Online shop sales</b>.</p>
+    <p class="say">&ldquo;No code and no spreadsheet. I&rsquo;ll use a built-in sample of shop orders.&rdquo;</p>
+  </section>
+
+  <section class="step">
+    <p class="time">0:15 &ndash; 0:30 &middot; Profile and charts appear</p>
+    <p class="do">Do: let the page load, then slowly scroll to the charts.</p>
+    <p class="say">&ldquo;It has read every row: two hundred orders, six columns, nothing missing. These charts were drawn by the same actions the AI agent uses.&rdquo;</p>
+  </section>
+
+  <section class="step">
+    <p class="time">0:30 &ndash; 0:42</p>
+    <p class="do">Do: on the <b>Most common product</b> chart, open its dropdown and pick <b>country</b>.</p>
+    <p class="say">&ldquo;I stay in control. I can point any chart at a different column, and it updates straight away.&rdquo;</p>
+  </section>
+
+  <section class="step">
+    <p class="time">0:42 &ndash; 0:52</p>
+    <p class="do">Do: point at the <b>price against quantity</b> chart and its correlation line.</p>
+    <p class="say">&ldquo;For two number columns it shows the correlation. Every number here is computed in code, not guessed by a model.&rdquo;</p>
+  </section>
+
+  <section class="step">
+    <p class="time">0:52 &ndash; 1:02</p>
+    <p class="do">Do: scroll up to <b>Ask about this data</b>. Type <i>Which category sells the most units?</i> and press <b>Ask</b>.</p>
+    <p class="say">&ldquo;Now I&rsquo;ll ask it a question, the way I&rsquo;d ask a colleague.&rdquo;</p>
+    <p class="tip">If it takes a few seconds, keep talking: &ldquo;It&rsquo;s working out the answer now.&rdquo; Tip: ask once before recording so a first answer is already on screen.</p>
+  </section>
+
+  <section class="step">
+    <p class="time">1:02 &ndash; 1:15 &middot; Answer and numbers appear</p>
+    <p class="do">Do: point at the answer, then at <b>Where the numbers come from</b>.</p>
+    <p class="say">&ldquo;Clothing, 281 units. The model didn&rsquo;t calculate that. It asked for an exact total, and here is the table it used. If it ever states a number it can&rsquo;t back up, the app flags it.&rdquo;</p>
+  </section>
+
+  <section class="step">
+    <p class="time">1:15 &ndash; 1:22</p>
+    <p class="do">Do: click <b>Pin this answer</b>, then scroll down to <b>Pinned</b>.</p>
+    <p class="say">&ldquo;I can pin an answer, and it keeps the numbers behind it.&rdquo;</p>
+  </section>
+
+  <section class="step">
+    <p class="time">1:22 &ndash; 1:30 &middot; Scroll to the privacy line at the bottom</p>
+    <p class="do">Do: scroll to the footer sentence and hold for two seconds.</p>
+    <p class="say">&ldquo;It&rsquo;s built with Agent-Native. And the model never sees your whole file, only summary statistics and the results of exact calculations. That&rsquo;s DataPilot.&rdquo;</p>
+  </section>
+
+  <section class="step">
+    <p class="time">Optional extra, 15 seconds &middot; only if you are under 90 seconds</p>
+    <p class="do">Do: click <b>Open a different file</b> and choose <b>Messy sign-ups</b>.</p>
+    <p class="say">&ldquo;It copes with messy data too: blanks, and a stray letter in a number column, which it flags.&rdquo;</p>
+  </section>
+
+  <p class="intro"><b>After recording:</b> open the Clips link in a private window to check it plays without logging in.</p>
+</main>
+<script>
+  const steps = [...document.querySelectorAll('.step')];
+  let i = 0;
+  const show = (n) => {
+    i = Math.max(0, Math.min(steps.length - 1, n));
+    steps.forEach((s, k) => s.classList.toggle('on', k === i));
+    steps[i].scrollIntoView({ block: 'center', behavior: 'smooth' });
+  };
+  let size = 34;
+  const setSize = (n) => { size = Math.max(20, Math.min(60, n)); document.documentElement.style.setProperty('--say', size + 'px'); };
+  addEventListener('keydown', (e) => {
+    if (e.key === ' ' || e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); show(i + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); show(i - 1); }
+    else if (e.key === '+' || e.key === '=') setSize(size + 4);
+    else if (e.key === '-') setSize(size - 4);
+  });
+  document.getElementById('plus').onclick = () => setSize(size + 4);
+  document.getElementById('minus').onclick = () => setSize(size - 4);
+  document.getElementById('reset').onclick = () => show(0);
+  steps.forEach((s, k) => s.addEventListener('click', () => show(k)));
+</script>
+</body>
+</html>
