@@ -44,3 +44,6 @@ data/*.lock
 
 .vercel
 .env*
+
+# Personal form details
+SUBMISSION-PRIVATE.md
