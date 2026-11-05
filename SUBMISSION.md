@@ -15,8 +15,8 @@ All statistics are computed deterministically in code. The model never calculate
 ## Form fields for you to fill in
 - Creator name and contact email: Kaushik Gaur, kaushikgaur404@gmail.com
 - Public Clips link (opens without login): https://clips.agent-native.com/share/un5aNEnC3rQP?ref=clip_share&via=8tkUpKrealUrfRHP14KuTXtUVnSATT3E
-- Live URL (optional): pending. Owner will sign in to Vercel and deploy after the other steps are done (see DEPLOY.md).
-- Public repo (optional): ______
+- Live URL (optional): https://agent-native-hackathon-2026.vercel.app (deployed Nov 6; shows a sign-up page, so the Clips video is the demo)
+- Public repo (optional): https://github.com/errorboy4O4/Agent-Native-Hackathon-2026
 
 ## Checklist
 - [x] Clips demo recorded

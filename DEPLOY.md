@@ -33,3 +33,9 @@ npx vercel deploy --prebuilt --prod
 Open the URL in a private window to confirm it works with no local state.
 
 Data note: the uploaded CSV is stored as text in the app database (up to about 6 MB). On a shared deployment treat it as visible to the app's owner.
+
+## Windows notes (learned deploying on Nov 6)
+Building on Windows with `NITRO_PRESET=vercel` produces output that Vercel rejects until you patch two things in `.vercel/output` (generated, gitignored):
+1. `functions/[...page].func` and `functions/index.func` are symlinks to an absolute local path. Replace each with a real copy of `functions/__server.func`.
+2. `config.json` registers a cron with `* * * * *`, which the Hobby plan rejects. Change `schedule` to `0 9 * * *`.
+Then run `npx vercel deploy --prebuilt --prod --yes`. Building on Linux (or Vercel's own build) avoids both.
